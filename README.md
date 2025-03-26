@@ -1,3 +1,4 @@
+
 # LightGEUnet  
 LightGEUnet is a lightweight model for seismic data processing and serves as a key model for the doctoral dissertation. This project provides comprehensive tools for training, testing, and visualization, suitable for seismic data analysis and fault detection tasks.
 
@@ -12,6 +13,9 @@ To train the model, use:
 ```bash
 python main.py
 ```
+
+We provide several sample training datasets in the `datasets/train` folder for demonstration purposes:
+
 
 ## Model Testing  
 1. Place prediction data (`.npy` format) in the `datasets/test/seismic` folder.  
@@ -45,8 +49,18 @@ python predict_3d.py
 ```
 
 ## File Conversion  
-| `sgy_npy_dat.py` | Convert `.npy` files to `.sgy` format |  
-| `readsgy.ipynb` | Read `.sgy` data and convert to `.npy` format |  
+
+### Conversion Utilities
+
+| File | Description |
+|------|-------------|
+| `sgy_npy_dat.py` | Convert `.npy` files to `.sgy` format |
+| `readsgy.ipynb` | Read `.sgy` data and convert to `.npy` format |
+
+Basic usage:
+```bash
+python sgy_npy_dat.py input.npy output.sgy
+```
 
 ## FAQ  
 - **NaN Errors**  
