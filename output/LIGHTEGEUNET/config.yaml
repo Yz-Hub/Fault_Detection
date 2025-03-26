@@ -1,0 +1,58 @@
+data:
+  batch_size: 4
+  img_size: 96
+  pin_memory: true
+  num_workers: 8
+  path: datasets/finetune/200-20/
+  json_path: datasets
+  json_name: dataset.json
+model:
+  name: LIGHTEGEUNET
+  c_list:
+  - 16
+  - 32
+  - 48
+  - 64
+  - 96
+  - 128
+  bridge: true
+  gt_ds: false
+  in_chans: 1
+  num_classes: 1
+  ds: false
+  drop: 0.0
+  attn_drop: 0.0
+  drop_path: 0.0
+  resume: ''
+train:
+  amp: true
+  start_epoch: 0
+  epochs: 200
+  clip_grad: true
+  auto_resume: true
+  patience: 200
+  output: output
+  save_freq: 100
+  print_freq: 10
+  seed: 20240629
+lr_scheduler:
+  name: cosine
+  warmup_epochs: 10
+  min_lr: 6.0e-06
+optimizer:
+  name: adamw
+  betas:
+  - 0.9
+  - 0.999
+  eps: 1.0e-08
+  momentum: 0.9
+  lr: 0.002
+  weight_decay: 0.01
+loss:
+  name: dice_focal3d
+aug:
+  mixup: true
+  lambdaa: 0.2
+wandb: true
+gpu: '0'
+gpu_num: 1
